@@ -1,5 +1,6 @@
-// Setup empty JS object to act as endpoint for all routes
+// Setup empty JS object - to act as endpoint for all routes (i.e., this variable acts as the endpoint for all our app data)
 projectData = {};
+// Should this be: const projectData = {};
 
 // Require Express (which we've already installed on the command line) to run server and routes
 const express = require('express');
@@ -33,10 +34,17 @@ function listening() {
 }
 
 // **************** Setup Express route ******************
-const express = require('express');
-const app = express();
+//const express = require('express'); // This has already been declared above
+//const app = express(); // This has already been declared above
 
+//TODO: change the below GET and POST to work in this project
 // respond with "hello world" when a GET request is made to the homepage
-app.get('/', function (req, res) {
-  res.send('hello world');
+app.get('/', function (request, response) {
+  response.send('hello world');
 });
+
+// POST method route
+app.post('/', function (req, res) {
+	res.send('post received');
+});
+

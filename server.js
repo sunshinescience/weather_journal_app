@@ -22,7 +22,7 @@ app.use(cors());
 // Initialize the main project folder
 app.use(express.static('website')); // We use our 'use' method and this time, we're pointing our app to the folder that we want it to look at
 
-// Setup Server
+// **************** Setup Server ******************
 const port = 3000; // We set our port
 
 const server = app.listen(port, listening); // Call the listen method and pass it our callback function
@@ -32,3 +32,11 @@ function listening() {
 	console.log(`server running on local host: ${port}`);
 }
 
+// **************** Setup Express route ******************
+const express = require('express');
+const app = express();
+
+// respond with "hello world" when a GET request is made to the homepage
+app.get('/', function (req, res) {
+  res.send('hello world');
+});

@@ -33,14 +33,15 @@ function listening() {
 	console.log(`server running on local host: ${port}`);
 }
 
-// **************** Setup Express route ******************
+// **************** Setup Express route ****************** 
 //const express = require('express'); // This has already been declared above
 //const app = express(); // This has already been declared above
 
 //TODO: change the below GET and POST to work in this project
-// respond with "hello world" when a GET request is made to the homepage
-app.get('/', function (request, response) {
-  response.send('hello world');
+// Respond with JS object when a GET request is made to the homepage 
+//TODO: figure out what URL to use below???
+app.get('/', function (req, res) {
+  res.send(projectData);
 });
 
 // POST method route

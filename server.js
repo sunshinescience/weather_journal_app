@@ -1,6 +1,5 @@
 // Setup empty JS object - to act as endpoint for all routes (i.e., this variable acts as the endpoint for all our app data)
-projectData = {};
-// Should this be: const projectData = {};
+let projectData = {};
 
 // Require Express (which we've already installed on the command line) to run server and routes
 const express = require('express');

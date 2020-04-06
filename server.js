@@ -28,7 +28,6 @@ const port = 3000; // We set our port
 const server = app.listen(port, listening); // Call the listen method and pass it our callback function
 
 function listening() {
-    console.log('server running');
 	console.log(`server running on local host: ${port}`);
 }
 
@@ -36,10 +35,9 @@ function listening() {
 //const express = require('express'); // This has already been declared above
 //const app = express(); // This has already been declared above
 
-//TODO: change the below GET and POST to work in this project
+//TODO: change the below POST to work in this project
 // Respond with JS object when a GET request is made to the homepage 
-//TODO: figure out what URL to use below???
-app.get('/', function (req, res) {
+app.get('/all', function (req, res) {
   res.send(projectData);
 });
 

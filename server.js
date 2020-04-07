@@ -23,6 +23,7 @@ app.use(cors());
 app.use(express.static('website')); // We use our 'use' method and this time, we're pointing our app to the folder that we want it to look at
 
 // **************** Setup Server ******************
+// Map URL's to functions
 const port = 3000; // We set our port
 
 const server = app.listen(port, listening); // Call the listen method and pass it our callback function
@@ -35,14 +36,21 @@ function listening() {
 //const express = require('express'); // This has already been declared above
 //const app = express(); // This has already been declared above
 
-//TODO: change the below POST to work in this project
 // Respond with JS object when a GET request is made to the homepage 
+// Get route returns projectData
+// Note that the function is within the GET in the code below, but it could be placed separate 
 app.get('/all', function (req, res) {
   res.send(projectData);
 });
 
-// POST method route
-app.post('/', function (req, res) {
-	res.send('post received');
-});
+//TODO: change the below POST to work in this project
+// POST method routes - adds data to projectData object
 
+app.post('/input', addInfo);
+
+function addInfo (req, res) {
+    projectData["temperature"] = req.body.temperature; // Adding a key/value pair to the projectData object using bracket notation
+    projectData["date"] = req.body.date;
+    projectData["userResponse"] = req.body.userResponse;
+    res.send(projectData); // Perhaps this is incorrect??? Do I use push() here instead? Or do we even need anything, because technically, the data should've been added with the above 3 lines of code???
+};

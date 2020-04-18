@@ -1,3 +1,5 @@
+// Server side code
+
 // Setup empty JS object - to act as endpoint for all routes (i.e., this variable acts as the endpoint for all our app data)
 let projectData = {};
 
@@ -45,7 +47,7 @@ app.get('/all', function (req, res) { // Here, we use the get methos on the inst
 
 
 // POST method routes - adds data to projectData object
-app.post('/input', addInfo);
+app.post('/add', addInfo);
 
 function addInfo (req, res) { 
   const info = { // Creating an object with three values (temperature, date, and userResponse)
@@ -53,5 +55,6 @@ function addInfo (req, res) {
     date: req.body.date,
     userResponse: req.body.userResponse
   };
-  projectData.push(info); // Added this to projectData
+  projectData.unshift(info); // Added this to projectData
+  console.log(projectData);
 };

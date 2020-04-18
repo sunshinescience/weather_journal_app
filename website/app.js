@@ -11,5 +11,27 @@ let d = new Date();
 let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 //TODO: Write an async function in app.js that uses fetch() to make a GET request to the OpenWeatherMap API
+// Make a POST request to our route (post the data)
+const postData = async (url = '', data = {}) => {
+    console.log(data);
+    const response = await fetch(url, {
+        method: 'POST', // Type of request we want to make, we want to post data somewhere
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type':'application/json',
+        },
+        body: JSON.stringify(data),
+    });
 
+    try {
+        const newData = await response.json();
+        console.log(newData);
+        return newData;
+    } catch(error) {
+        console.log('error', error);
+        // TODO: handle the error
+    };
+};
+
+postData('/add', {temperature: 60, date: '04-13-2020', userResponse: 'cold'}) // try a test to pass in some data
 

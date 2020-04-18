@@ -45,14 +45,13 @@ app.get('/all', function (req, res) { // Here, we use the get methos on the inst
 
 
 // POST method routes - adds data to projectData object
-
 app.post('/input', addInfo);
 
-function addInfo (req, res) { // Creating an object with three values that include temperature, date, and userResponse
-  const info = {
-    temperature: req.body.temperature,
+function addInfo (req, res) { 
+  const info = { // Creating an object with three values (temperature, date, and userResponse)
+    temperature: req.body.temperature, // key value pair, here temperature is the property and the value here is req.body.temperature, which is data submitted in the request body
     date: req.body.date,
     userResponse: req.body.userResponse
   };
-  projectData.push(info);
+  projectData.push(info); // Added this to projectData
 };

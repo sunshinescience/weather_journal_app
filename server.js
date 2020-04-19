@@ -1,7 +1,7 @@
 // Server side code
 
 // Setup empty JS object - to act as endpoint for all routes (i.e., this variable acts as the endpoint for all our app data)
-let projectData = {};
+let projectData = [];
 
 // Require Express (which we've already installed on the command line) to run server and routes
 const express = require('express');
@@ -55,6 +55,6 @@ function addInfo (req, res) {
     date: req.body.date,
     userResponse: req.body.userResponse
   };
-  projectData.unshift(info); // Added this to projectData
+  projectData.push(info); // Added this to projectData
   console.log(projectData);
 };

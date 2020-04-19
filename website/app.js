@@ -33,5 +33,5 @@ const postData = async (url = '', data = {}) => {
     };
 };
 
-postData('/add', {temperature: 60, date: '04-13-2020', userResponse: 'cold'}) // try a test to pass in some data
-
+// Add some data to our app endpoint as a test. Pass in some data in the form of an object
+postData('/add', {temperature: 85, date: '04-13-2020', userResponse: 'warm'});

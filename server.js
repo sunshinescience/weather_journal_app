@@ -1,7 +1,7 @@
 // Server side code
 
 // Setup empty JS object - to act as endpoint for all routes (i.e., this variable acts as the endpoint for all our app data)
-let projectData = [];
+let projectData = {};
 
 // Require Express (which we've already installed on the command line) to run server and routes
 const express = require('express');
@@ -50,11 +50,8 @@ app.get('/all', function (req, res) { // Here, we use the get methos on the inst
 app.post('/add', addInfo);
 
 function addInfo (req, res) { 
-  const info = { // Creating an object with three values (temperature, date, and userResponse)
-    temperature: req.body.temperature, // key value pair, here temperature is the property and the value here is req.body.temperature, which is data submitted in the request body
-    date: req.body.date,
-    userResponse: req.body.userResponse
-  };
-  projectData.push(info); // Added this to projectData
+  projectData["temperature"] = req.body.temperature; // Adding a key/value pair to the projectData object using bracket notation
+  projectData["date"] = req.body.date;
+  projectData["userResponse"] = req.body.userResponse;
   console.log(projectData);
 };

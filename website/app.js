@@ -45,10 +45,10 @@ function performAction(e){
 }
 
 const getWeather = async (baseURL, zip, apiKey)=>{
-    const res = await fetch(`${baseURL}?zip=${zip},us&appid=${apiKey}`);
+    const res = await fetch(`${baseURL}?zip=${zip},us&appid=${apiKey}`); // Set it so that us zip codes are hard coded
     try {
         const data = await res.json();
-        console.log(data);
+        console.log(data["visibility"]);
         return data;
     }  catch(error) {
         console.log("error");

@@ -50,8 +50,9 @@ app.get('/all', function (req, res) { // Here, we use the get methos on the inst
 app.post('/add', addInfo);
 
 function addInfo (req, res) { 
-  projectData["temperature"] = req.body.temperature; // Adding a key/value pair to the projectData object using bracket notation
-  projectData["date"] = req.body.date;
-  projectData["userResponse"] = req.body.userResponse;
+  let data = req.body;
+  projectData["temperature"] = data.temperature; // Adding a key/value pair to the projectData object using bracket notation
+  projectData["date"] = data.date;
+  projectData["userResponse"] = data.userResponse;
   console.log(projectData);
 };

@@ -21,7 +21,7 @@ const postData = async (url = '', data = {}) => {
         headers: {
             'Content-Type':'application/json',
         },
-        body: JSON.stringify(), 
+        body: JSON.stringify(data), 
     });
 
     try {
@@ -41,12 +41,14 @@ document.getElementById('generate').addEventListener('click', performAction); //
 
 function performAction(e){
     const zipValue =  document.getElementById('zip').value;
+    const feeling = document.getElementById('feelings').value;
     getWeather(baseURL, zipValue, apiKey) // The action we want to do here is call this getWeather function
     // Chain another Promise that makes a POST request to store all the API data we received, as well as data entered by the user, locally in the app
     .then(function(data){ // Use the syntax 'then' to chain actions, with fetch calls
         // console.log(data);
         // Add data to POST request
-        postData('/add', {temperature:data.temperature, date:data.date, zip:zipValue});
+        // postData('/add', {temperature:data.temperature, date:data.date, userResponse:zipValue}); // Get zip
+        postData('/add', {temperature:data.temperature, date:data.date, userResponse:feeling});
     });
 };
 
@@ -55,7 +57,7 @@ const getWeather = async (baseURL, zip, apiKey)=>{
     const res = await fetch(`${baseURL}?zip=${zip},us&appid=${apiKey}`); // We set a variable to hold the fetch calls. And the await keyword is telling it not to go on to the next part until it has received the data it needs. This URL in the fetch is what will let us query the OpenWeatherMap API. I set it so that us zip codes are hard coded
     try {
         const data = await res.json();
-        console.log(data);
+        //console.log(data); // Printing the data in the console received from the OpenWeatherMap API, based on the zip code the user input
         return data;
     }  
     catch(error) {

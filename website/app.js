@@ -32,6 +32,7 @@ const postData = async (url = '', data = {}) => {
         console.log('error', error);
     };
 };
+
 /*
 // Add some data to our app endpoint as a test. Pass in some data in the form of an object
 postData('/add', {temperature: 85, date: '04-13-2020', userResponse: 'warm'});
@@ -48,7 +49,9 @@ function performAction(e){
         console.log(data);
         // Add data to POST request
         // postData('/add', {temperature:data.temperature, date:data.date, userResponse:zipValue}); // Get zip
-        postData('/add', {temperature: data.main.temp, date:newDate, userResponse:feeling});
+        postData('/add', {temp: data.main.temp, date:newDate, userResponse:feeling});
+    
+        updateUI();
     });
 };
 
@@ -66,6 +69,17 @@ const getWeather = async (baseURL, zip, apiKey)=>{
     }
 };
 
-
-
-
+// Updating the UI of the app dynamically
+const updateUI = async () => {
+    const request = await fetch('/all');
+    try{
+      const allData = await request.json();
+      console.log(allData);
+      document.getElementById('temp').innerHTML = allData.temperature;
+      document.getElementById('date').innerHTML = allData.date;
+      document.getElementById('content').innerHTML = allData.userResponse;
+  
+    }catch(error){
+      console.log("error", error);
+    }
+  };

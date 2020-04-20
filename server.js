@@ -51,11 +51,11 @@ app.post('/add', addInfo);
 
 function addInfo (req, res) { 
   let data = req.body;
-  projectData["temperature"] = data.temperature; // Adding a key/value pair to the projectData object using bracket notation
+  projectData["temperature"] = data.temp; // Adding a key/value pair to the projectData object using bracket notation
   projectData["date"] = data.date;
   projectData["userResponse"] = data.userResponse;
   res.send(projectData);
-  console.log(projectData);
+  //console.log(projectData);
   /*
   newEntry = {
     temperature: data.temperature,

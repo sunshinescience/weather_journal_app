@@ -45,10 +45,10 @@ function performAction(e){
     getWeather(baseURL, zipValue, apiKey) // The action we want to do here is call this getWeather function
     // Chain another Promise that makes a POST request to store all the API data we received, as well as data entered by the user, locally in the app
     .then(function(data){ // Use the syntax 'then' to chain actions, with fetch calls
-        // console.log(data);
+        console.log(data);
         // Add data to POST request
         // postData('/add', {temperature:data.temperature, date:data.date, userResponse:zipValue}); // Get zip
-        postData('/add', {temperature:data.temperature, date:data.date, userResponse:feeling});
+        postData('/add', {temperature: data.main.temp, date:newDate, userResponse:feeling});
     });
 };
 

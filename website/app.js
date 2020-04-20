@@ -49,7 +49,7 @@ function performAction(e){
         console.log(data);
         // Add data to POST request
         // postData('/add', {temperature:data.temperature, date:data.date, userResponse:zipValue}); // Get zip
-        postData('/add', {temp: data.main.temp, date:newDate, userResponse:feeling});
+        postData('/add', {temperature: data.main.temp, date:newDate, userResponse:feeling});
     
         updateUI();
     });
@@ -74,7 +74,7 @@ const updateUI = async () => {
     const request = await fetch('/all');
     try{
       const allData = await request.json();
-      console.log(allData);
+      //console.log(allData);
       document.getElementById('temp').innerHTML = allData.temperature;
       document.getElementById('date').innerHTML = allData.date;
       document.getElementById('content').innerHTML = allData.userResponse;
@@ -83,3 +83,4 @@ const updateUI = async () => {
       console.log("error", error);
     }
   };
+

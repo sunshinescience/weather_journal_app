@@ -56,13 +56,5 @@ function addInfo (req, res) {
   projectData["userResponse"] = data.userResponse;
   console.log(projectData);
   
-  /*
-  newEntry = {
-    temperature: data.temperature,
-    date: data.date,
-    userResponse: data.userResponse
-  };
-  */
-  
 };
 

@@ -41,7 +41,7 @@ function listening() {
 // Respond with JS object when a GET request is made to the homepage 
 // Get route returns projectData
 // Note that the function is within the GET in the code below, but it could be placed separate 
-app.get('/all', function (req, res) { // Here, we use the get methos on the instance of our app (called app above). Also, we created a new route named '/all' here, so that the route 'localhost:3000/all' will noww trigger the get request, which will return the JS object. req is the data provided by the GET request and res is the data returned to the GET request
+app.get('/all', function (req, res) { // Here, we use the get method on the instance of our app (called app above). Also, we created a new route named '/all' here, so that the route 'localhost:3000/all' will noww trigger the get request, which will return the JS object. req is the data provided by the GET request and res is the data returned to the GET request
   res.send(projectData); // Using the get request to return the data (within projectData - once we post data into projectData), i.e., adding the line of code that will return the JS object when the GET request is made
 });
 
@@ -56,3 +56,4 @@ function addInfo (req, res) {
   projectData["userResponse"] = data.userResponse;
   console.log(projectData);
 };
+

@@ -35,7 +35,7 @@ const postData = async (url = '', data = {}) => {
 
 /*
 // Add some data to our app endpoint as a test. Pass in some data in the form of an object
-postData('/add', {temperature: 85, date: '04-13-2020', userResponse: 'warmer'});
+postData('/add', {temperature: 85, date: '04-13-2020', userResponse: 'warm'});
 */
 
 document.getElementById('generate').addEventListener('click', performAction); // Added an event listener with a callback called performAction. So that when I click the generate button it will perform this action
@@ -83,3 +83,4 @@ const updateUI = async () => {
       console.log("error", error);
     }
   };
+  

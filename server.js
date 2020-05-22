@@ -55,6 +55,4 @@ function addInfo (req, res) {
   projectData["date"] = data.date;
   projectData["userResponse"] = data.userResponse;
   console.log(projectData);
-  
 };
-
